@@ -1,7 +1,12 @@
 const Task = require("../models/Task");
 
-const getAllTasks = (req, res) => {
-    res.send("タスクを全て取得しました");
+const getAllTasks = async (req, res) => {
+    try {
+        const allTask = await Task.find({});
+        res.status(200).json(allTask);
+    } catch (err) {
+        res.status(500).json(err);
+    }
 };
 const createTask = async (req, res) => {
     try {
