@@ -6,14 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Node+Mongo_Todo</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
-    <form class="task-form">
-        <h4>Nodejsでtodoアプリ </h4>
-        <div class="form-control">
-            <input type="text" name="name" class="task-input" placeholder="例 Nodejsの勉強">
-            <button type="submit" class="btn submit-btn">送信</button>
-        </div>
-    </form>
-</body>
+    <body>
+        <form class="task-form">
+            <h4>Nodejsでtodoアプリ </h4>
+            <div class="form-control">
+                <input type="text" name="name" class="task-input" placeholder="例 Nodejsの勉強">
+                <button type="submit" class="btn submit-btn">送信</button>
+            </div>
+        </form>
+
+        <section class="tasks-container">
+            <div class="tasks">
+                <!-- 擬似的にタスクを置く -->
+                <div class="single-task">
+                    <h5>
+                        <span><i class="far fa-check-circle"></i></span>Todoタスク
+                    </h5>
+                    <div class="task-links">
+                        <!-- 編集リンク  -->
+                        <a href="#" class="edit-link">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                            
+                        <!-- ゴミ箱リンク -->
+                        <button type="button" class="delete-btn">
+                            <a href="#" class="edit-link">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </button>
+                    </div>
+                </div>
+                <div class="single-task">
+                    <h5>
+                        <span><i class="far fa-check-circle"></i></span>Todoタスク
+                    </h5>
+                    <div class="task-links">
+                        <!-- 編集リンク  -->
+                        <a href="#" class="edit-link">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                            
+                        <!-- ゴミ箱リンク -->
+                        <button type="button" class="delete-btn">
+                            <a href="#" class="edit-link">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
 </html>
