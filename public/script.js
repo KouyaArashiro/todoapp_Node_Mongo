@@ -6,7 +6,7 @@ const taskInputDOM = document.querySelector(".task-input");
 const showTasks  = async () => {
     try {
         const { data: tasks } = await axios.get("/api/v1/tasks");
-        console.log(tasks);
+        // console.log(tasks);
 
         //タスクを出力
         const allTasks = tasks.map((task) => {
@@ -22,10 +22,8 @@ const showTasks  = async () => {
                 </a>
                     
                 <!-- ゴミ箱リンク -->
-                <button type="button" class="delete-btn">
-                    <a href="#" class="edit-link">
+                <button type="button" class="delete-btn" data-id="${_id}">
                         <i class="fas fa-trash"></i>
-                    </a>
                 </button>
             </div>
         </div>`
@@ -52,3 +50,17 @@ formDOM.addEventListener("submit", async (event) => {
         console.log(err);
     }
 })
+
+//タスクを削除
+tasksDOM.addEventListener("click", async (event) => {
+    const element = event.target;
+    if(element.parentElement.classList.contains("delete-btn")) {
+        const id = element.parentElement.dataset.id;
+        try {
+            await axios.delete(`/api/v1/tasks/${id}`);
+            showTasks();
+        } catch (err) {
+            console.log(err);
+        }
+    }
+});
