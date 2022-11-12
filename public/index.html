@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Node+Mongo_Todo</title>
+    <title>niceDay</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
     <body>
         <form class="task-form">
             <h4>Have a nice day.</h4>
+            <p>
+                <select name="question">
+                    <option value="今日、どのような１日にしたい？"></option>
+                    <option value="今の気分は？"></option>
+                    <option value="今日の楽しみは？"></option>
+                    <option value="今気になっていることは？"></option>
+                    <option value="目標に近づくために今日できることは？"></option>
+                </select>
+            </p>
             <div class="form-control">
-                <input type="text" name="name" class="task-input" placeholder="例 Nodejsの勉強">
+                <input type="text" name="name" class="task-input" placeholder="回答を記述">
                 <button type="submit" class="btn submit-btn">送信</button>
             </div>
             <div class="form-alert"></div>
