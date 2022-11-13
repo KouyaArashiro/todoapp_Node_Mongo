@@ -31,10 +31,10 @@ editFormDOM.addEventListener("submit", async (e) => {
         const taskName = taskNameDOM.value;
         // const question = questionDOM.value;
         // const answer = editFormDOM.value;
-        const taskCompleted = taskCompletedDOM.checked;
+        // const taskCompleted = taskCompletedDOM.checked;
         const {data: task} = await axios.patch(`/api/v1/tasks/${id}`, {
             // name: taskName,
-            completed: taskCompleted,
+            // completed: taskCompleted,
             // question: taskName,
             answer: taskName,
         });
