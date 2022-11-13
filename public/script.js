@@ -1,6 +1,7 @@
 const tasksDOM = document.querySelector(".tasks");
 const formDOM = document.querySelector(".task-form");
 const taskInputDOM = document.querySelector(".task-input");
+const questionInputDOM = document.querySelector(".question-input");
 const formAlertDOM = document.querySelector(".form-alert");
 
 // /api/v1/tasksからタスクを取得
@@ -18,13 +19,13 @@ const showTasks  = async () => {
 
         //タスクを出力
         const allTasks = tasks.map((task) => {
-            const { completed, _id, name, date } = task;
+            const { completed, _id, name, date, question } = task;
             return `<div class="single-task ${completed && "task-completed"}">
             <h5>
                 <span><i class="far fa-check-circle"></i></span>${date}
             </h5>
             <h5>
-                <span><i class="far fa-check-circle"></i></span>${name}
+                <span><i class="far fa-check-circle"></i></span>${question}
             </h5>
             <div class="task-links">
                 <!-- 編集リンク  -->
@@ -52,18 +53,21 @@ showTasks();
 formDOM.addEventListener("submit", async (event) => {
     event.preventDefault();
     const name = taskInputDOM.value;
+    const question = questionInputDOM.value;
     const date = new Date();
     const year = date.getFullYear();
     const month = date.getMonth();
     const day = date.getDate();
     const dateString = year + "/" + month + "/" + day;
-    console.log(dateString);
+    // console.log(dateString);
+    // console.log(question);
+
     try {
-        await axios.post("/api/v1/tasks", { name: name, date: dateString});
+        await axios.post("/api/v1/tasks", { name: name, date: dateString, question: question});
         showTasks();
         taskInputDOM.value = "";
         formAlertDOM.style.display = "block";
-        formAlertDOM.textContent = "タスクを追加しました。";
+        formAlertDOM.textContent = "記録しました。";
         formAlertDOM.classList.add("text-success");
     } catch (err) {
         console.log(err);
