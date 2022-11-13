@@ -1,6 +1,6 @@
 const tasksDOM = document.querySelector(".tasks");
 const formDOM = document.querySelector(".task-form");
-const taskInputDOM = document.querySelector(".task-input");
+const answerInputDOM = document.querySelector(".task-input");
 const questionInputDOM = document.querySelector(".question-input");
 const formAlertDOM = document.querySelector(".form-alert");
 
@@ -52,7 +52,7 @@ showTasks();
 //タスクを新規登録する
 formDOM.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const name = taskInputDOM.value;
+    const answer = answerInputDOM.value;
     const question = questionInputDOM.value;
     const date = new Date();
     const year = date.getFullYear();
@@ -63,9 +63,9 @@ formDOM.addEventListener("submit", async (event) => {
     // console.log(question);
 
     try {
-        await axios.post("/api/v1/tasks", { name: name, date: dateString, question: question});
+        await axios.post("/api/v1/tasks", { answer: answer, date: dateString, question: question});
         showTasks();
-        taskInputDOM.value = "";
+        answerInputDOM.value = "";
         formAlertDOM.style.display = "block";
         formAlertDOM.textContent = "記録しました。";
         formAlertDOM.classList.add("text-success");
