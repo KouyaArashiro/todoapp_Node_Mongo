@@ -18,8 +18,11 @@ const showTasks  = async () => {
 
         //タスクを出力
         const allTasks = tasks.map((task) => {
-            const { completed, _id, name } = task;
+            const { completed, _id, name, date } = task;
             return `<div class="single-task ${completed && "task-completed"}">
+            <h5>
+                <span><i class="far fa-check-circle"></i></span>${date}
+            </h5>
             <h5>
                 <span><i class="far fa-check-circle"></i></span>${name}
             </h5>
@@ -49,9 +52,14 @@ showTasks();
 formDOM.addEventListener("submit", async (event) => {
     event.preventDefault();
     const name = taskInputDOM.value;
-
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const day = date.getDate();
+    const dateString = year + "/" + month + "/" + day;
+    console.log(dateString);
     try {
-        await axios.post("/api/v1/tasks", { name: name });
+        await axios.post("/api/v1/tasks", { name: name, date: dateString});
         showTasks();
         taskInputDOM.value = "";
         formAlertDOM.style.display = "block";
