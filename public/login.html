@@ -7,12 +7,12 @@
 </head>
 <body>
     <div>
-        <form action ="/users/register" method="POST" autocomplete="off" class="task-form">
+        <form action ="/admin" method="POST" autocomplete="off" class="task-form">
         <h4>ログイン</h4>
         <label for ="name">名前</label>
-        <input id ="name" name="name"/>
+        <input type="text" id ="name" name="username" placeholder="user name"/>
         <label for ="password">パスワード</label>
-        <input type="password" id ="password" name="password"/>
+        <input type="password" id ="password" name="password" placeholder="password"/>
         <button type="submit" class="btn submit-btn">ログイン</button>
         <button type="submit" class="btn submit-btn">新規登録</button>
         </form>
