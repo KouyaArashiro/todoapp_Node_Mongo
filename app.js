@@ -8,6 +8,21 @@ app.use(express.json());
 app.use(express.static("./public"));
 const PORT = 5001;
 
+const path = require('path');
+const bodyParser = require('body-parser');
+const passport = require('passport');
+const { Strategy } = require('passport-local'); 
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+
+// const server = express();
+
+// server.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname + '/index.html/'));
+// });
+
+// server.listen(PORT);
+
 //ルーティング設計 
 app.use("/api/v1/tasks", taskRoutes);
 //DBと接続
